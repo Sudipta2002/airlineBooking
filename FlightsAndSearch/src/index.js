@@ -22,8 +22,8 @@ const setupAndStartServer = async() => {
 
         const repo = new CityRepository();
         repo.createCity({ name: "New Delhi" });
-        // repo.createCity({ name: "Kolkata" });
-        // repo.deleteCity({ cityId: 1 });
+        repo.createCity({ name: "Kolkata" });
+        // repo.deleteCity(32);
     });
 }
 setupAndStartServer();
