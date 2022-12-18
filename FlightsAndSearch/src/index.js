@@ -4,6 +4,12 @@ const { PORT } = require('./config/serverConfig');
 // dotenv.config();
 const bodyParser = require('body-parser')
 
+const CityRepository = require('./repository/city-repository');
+
+
+
+
+
 const setupAndStartServer = async() => {
     /// create a express object
     const app = express();
@@ -13,6 +19,11 @@ const setupAndStartServer = async() => {
 
     app.listen(PORT, () => {
         console.log(`Server running at port number ${PORT}`);
+
+        const repo = new CityRepository();
+        repo.createCity({ name: "New Delhi" });
+        // repo.createCity({ name: "Kolkata" });
+        // repo.deleteCity({ cityId: 1 });
     });
 }
 setupAndStartServer();
