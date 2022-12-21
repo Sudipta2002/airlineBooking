@@ -14,16 +14,13 @@ class CityRepository {
 
     async createAllCity(allCities) {
         try {
-
             const allCity = await City.bulkCreate(allCities);
-
             return allCity;
         } catch (error) {
             console.log("Something went wrong in the repository layer");
             throw { error };
         }
     }
-
     async deleteCity(cityId) {
         try {
             await City.destroy({
@@ -82,6 +79,16 @@ class CityRepository {
             return cities;
         } catch (error) {
             console.log("Something went wrong in the repository layer");
+            throw { error };
+        }
+    }
+    async airportsOfCity(id) {
+        try {
+            const city = await this.getCity(id);
+            const airports = await city.getAirports();
+            return airports;
+        } catch (error) {
+            console.log("something went wrong in the repository layer");
             throw { error };
         }
     }
