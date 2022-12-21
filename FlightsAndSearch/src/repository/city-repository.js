@@ -11,7 +11,6 @@ class CityRepository {
             throw { error };
         }
     }
-
     async createAllCity(allCities) {
         try {
             const allCity = await City.bulkCreate(allCities);
@@ -34,7 +33,6 @@ class CityRepository {
             throw { error };
         }
     }
-
     async updateCity(cityId, data) {
         try {
             // const city = await City.update(data,{
@@ -51,9 +49,6 @@ class CityRepository {
             throw { error };
         }
     }
-
-
-
     async getCity(cityId) {
         try {
             const city = await City.findByPk(cityId);
