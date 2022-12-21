@@ -4,10 +4,22 @@ class CityRepository {
     async createCity({ name }) {
         try {
             const city = await City.create({ name });
+            console.log(city);
             return city;
         } catch (error) {
             console.log("Something went wrong in the repository layer");
+            throw { error };
+        }
+    }
 
+    async createAllCity(allCities) {
+        try {
+
+            const allCity = await City.bulkCreate(allCities);
+
+            return allCity;
+        } catch (error) {
+            console.log("Something went wrong in the repository layer");
             throw { error };
         }
     }
