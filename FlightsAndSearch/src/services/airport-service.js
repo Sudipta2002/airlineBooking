@@ -18,12 +18,8 @@ class AirportService {
     }
     async deleteAirport(airportId) {
         try {
-            await this.AirportRepository.deleteAirport({
-                where: {
-                    id: airportId
-                }
-            });
-            return true;
+            const response = await this.AirportRepository.deleteAirport(airportId);
+            return response;
         } catch (error) {
             console.log("Something went wrong in the repository layer");
             throw { error };
