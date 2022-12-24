@@ -5,4 +5,4 @@ function compareTime(dateTime1, dateTime2) {
     return t1.getTime() > t2.getTime();
 }
 
-module.exports = { compareTime }
+module.exports = { compareTime };
